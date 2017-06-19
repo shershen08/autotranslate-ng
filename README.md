@@ -33,6 +33,16 @@ Translation table(JSON):
 From above example you can also notice that **autotranslate-ng** also introduces `translate-values` attributes for angular bindings if they exists in a tag's text.
 Unfortunately you need to manually convert bindings, automatic conversion is not supported.
 
+# Call options
+
+ 1. html source path `String`
+ 2. label prefix in JSON file `String`
+ 3. tag/tag.class to exclude `String`
+ 4. Replace initial .html file `Boolean`
+
+Example: `autotranslate-ng client\app\components\account-information.html account-information table true`
+
+
 # Usage
 
 ```

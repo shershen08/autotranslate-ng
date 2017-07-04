@@ -172,18 +172,12 @@ function parse($) {
   var result = {};
   var counter = 0;
 
-  const getElemTagAndClassSelector = (excudeTags, elem) => {
-    if (excudeTags.indexOf('.') > -1 && elem.attribs.class) {
-      return elem.attribs.class.indexOf(excudeTags.split('.')[1]) > -1;
-    }
-  }
-
   function process(elements) {
     elements.each(function (i, elem) {
       var $elem = $(elem);
 
-      // exclude TAG.CLASS elements
-      if ($elem[0].name === excudeTags && getElemTagAndClassSelector(excudeTags, $elem[0])) {
+      // exclude elements that childern for `excudeTags` selector
+      if ($elem.parents(excudeTags).length) {
         return;
       }
 

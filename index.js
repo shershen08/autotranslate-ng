@@ -131,6 +131,11 @@ function processElement(i, $elem) {
     // No slug - no need to translate text in node
     return;
   }
+  
+  if(slug.length > 25) {
+    //shorten generated slug if text is > 25 symbols
+    slug = slug.substr(0, 25) + (new Date().getTime().toString().substr(7,5))
+  }
 
   if (!isNaN(parseFloat(slug))) {
     // is Number
